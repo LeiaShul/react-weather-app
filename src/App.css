@@ -1,1 +1,17 @@
+:root {
+  --primary-color: rgba(186, 159, 232, 0.518);
+}
 
+.container {
+  background-color: var(--primary-color);
+  width: 700px !important;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.row {
+  flex-wrap: nowrap !important;
+}
