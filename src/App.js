@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
+import Weather from './Weather'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-         
-      </header>
+      <div className="container">
+        <Weather defaultCity="Kyiv" />
+
+        <footer className="text-center">
+          This project was coded by Lesia Shulezhko and is <a href="/">open-sourced on GitHub</a>
+        </footer>        
+      </div>
+
     </div>
   );
 }
