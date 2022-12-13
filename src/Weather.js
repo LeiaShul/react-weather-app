@@ -4,24 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
+import Current from "./Current";
+
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ ready: false });
     const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
-       // console.log(response)
         setWeatherData({
             ready: true,
             coordinates: response.data.coordinates,
             temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
-          //  date: new Date(response.data.dt * 1000),
+            date: new Date(response.data.time * 1000),
             description: response.data.condition.description,
             icon: response.data.condition.icon_url,
             wind: response.data.wind.speed,
-            city: response.data.city,    
+            city: response.data.city  
 
         })
+        //console.log(weatherData.time)
     }
 
     function handleSubmit(event) {
@@ -42,7 +44,7 @@ export default function Weather(props) {
         return (
             <div className="weather">
                 <form onSubmit={handleSubmit} >
-                    <div className="row gy-3 ">
+                    <div className="row">
                         <div className="col-8">
                             <input type="search" className="form-control" placeholder="Enter a city" name="city" onChange={Update}></input>
                         </div>       
@@ -54,6 +56,9 @@ export default function Weather(props) {
                         </div>
                     </div>
                 </form>
+                <div className="current m-3">
+                    <Current data={weatherData} />
+                </div>
             </div>
         )
     }
