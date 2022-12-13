@@ -5,6 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import Current from "./Current";
+import Forecast from "./WeatherForecast";
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ ready: false });
@@ -58,6 +59,9 @@ export default function Weather(props) {
                 </form>
                 <div className="current m-3">
                     <Current data={weatherData} />
+                </div>
+                <div className="forecast">
+                    <Forecast coordinates={weatherData.coordinates} />
                 </div>
             </div>
         )

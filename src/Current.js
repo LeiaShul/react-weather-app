@@ -1,11 +1,9 @@
 import React from "react";
 import FormattedDate from "./FormatDate";
 import CurrentTemperature from "./CurrentTemperature";
-import CurrentIcon from "./CurrentIcon";
-
+import CurrentIcon from "./WeatherIcon";
 
 export default function CurrentInfo(props) {
-    //console.log(props.data.date)
     return (
         <div className="row my-3">
             <div className="col-8">
@@ -17,13 +15,12 @@ export default function CurrentInfo(props) {
                 <h3 className="display-2 fs-5 text-capitalize">{props.data.description}</h3>               
             </div>
             <div className="col">               
-                <CurrentIcon icon={props.data.icon} />              
+                <CurrentIcon icon={props.data.icon} width='150px' />              
                 <div className="display-6 fs-6 mx-1">
-                    Humidity: {props.data.humidity} <br/>
-                    Wind: {props.data.wind}
+                    Humidity: {props.data.humidity}% <br/>
+                    Wind: {props.data.wind}m/s
                 </div>
-            </div>
-
+            </div>           
         </div>
     )
 }

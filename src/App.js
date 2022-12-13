@@ -8,11 +8,11 @@ function App() {
       <div className="container shadow">
         <Weather defaultCity="Kyiv" />
 
-        <footer className="text-center">
-          This project was coded by Lesia Shulezhko and is <a href="/">open-sourced on GitHub</a>
-        </footer>        
+               
       </div>
-
+      <footer className="text-center text-muted font-monospace">
+        This project was coded by Lesia Shulezhko and is <a href="/">open-sourced on GitHub</a>
+      </footer> 
     </div>
   );
 }
