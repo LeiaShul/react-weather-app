@@ -1,7 +1,7 @@
 :root {
   --primary-color: rgba(175, 150, 218, 0.518);
-  --secondary-color: rgba(48, 13, 54, 0.518);
-  --link-color: rgba(48, 13, 54, 0.7);
+  --secondary-color: rgba(129, 64, 139, 0.518);
+  --link-color: rgba(129, 64, 139, 0.9);
 }
 
 .container {
