@@ -17,7 +17,6 @@ export default function ForecastDay(props) {
         return `${min}°`
     }
 
-   // console.log(props.data)
     return (
         <div className="card text-center">
             <div className="card-body">
@@ -27,7 +26,6 @@ export default function ForecastDay(props) {
                     </h5>
                     <h6 className="card-subtitle text-muted">
                         {maxTemp()}/{minTemp()}
-
                     </h6>
                     <div className="card-text">
                         <WeatherIcon icon={props.data.condition.icon_url} width='60px' />

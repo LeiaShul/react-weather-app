@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { ThreeDots} from 'react-loader-spinner';
 
 import Current from "./Current";
 import Forecast from "./WeatherForecast";
@@ -15,7 +15,7 @@ export default function Weather(props) {
         setWeatherData({
             ready: true,
             coordinates: response.data.coordinates,
-            temperature: Math.round(response.data.temperature.current),
+            temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
             date: new Date(response.data.time * 1000),
             description: response.data.condition.description,
@@ -24,7 +24,6 @@ export default function Weather(props) {
             city: response.data.city  
 
         })
-        //console.log(weatherData.time)
     }
 
     function handleSubmit(event) {
@@ -46,14 +45,11 @@ export default function Weather(props) {
             <div className="weather">
                 <form onSubmit={handleSubmit} >
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-11">
                             <input type="search" className="form-control" placeholder="Enter a city" name="city" onChange={Update}></input>
                         </div>       
                         <div className="col-auto px-0">
                             <button className="btn btn-outline-light mx-0" type="Submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>                                               
-                        </div>
-                        <div className="col-auto">
-                            <button className="btn btn-outline-light mx-0" type="Submit"><FontAwesomeIcon icon={faLocationDot} /></button>                                               
                         </div>
                     </div>
                 </form>
@@ -68,7 +64,16 @@ export default function Weather(props) {
     }
     else {
         search();
-        return "Loading...";
+        return <ThreeDots 
+            height="80" 
+            width="80" 
+            radius="9"
+            color="white" 
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{justifyContent: 'center'}}
+            wrapperClassName=""
+            visible={true}
+        />;
     }
 
 }

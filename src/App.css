@@ -1,9 +1,11 @@
 :root {
   --primary-color: rgba(175, 150, 218, 0.518);
+  --secondary-color: rgba(48, 13, 54, 0.518);
+  --link-color: rgba(48, 13, 54, 0.7);
 }
 
 .container {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   width: 700px !important;
   padding: 10px;
   margin-top: 20px;
@@ -11,7 +13,9 @@
   border-radius: 15px;
   margin-bottom: 10px;
 }
-
+.link {
+  color: var(--link-color);
+}
 .row {
   flex-wrap: nowrap !important;
 }

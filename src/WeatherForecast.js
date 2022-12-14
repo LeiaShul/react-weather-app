@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
+import { ThreeDots} from 'react-loader-spinner';
 
 export default function Forecast(props) {
     let [forecast, setForecast] = useState(null);
     let [loaded, setLoaded] = useState(false);
     
-
     function handleResponse(response) {
-        //console.log(response.data.daily)
         setForecast(response.data.daily);  
         setLoaded(true);
     }
@@ -45,6 +44,15 @@ export default function Forecast(props) {
     }
     else {
         load();
-        return null;
+        return <ThreeDots 
+            height="80" 
+            width="80" 
+            radius="9"
+            color="white" 
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{justifyContent: 'center'}}
+            wrapperClassName=""
+            visible={true}
+        />;
     }
 }
